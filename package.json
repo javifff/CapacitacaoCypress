@@ -1,0 +1,22 @@
+{
+  "name": "capacitacaocypress",
+  "version": "1.0.0",
+  "description": "Entrenamiento Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javifff/CapacitacaoCypress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javifff/CapacitacaoCypress/issues"
+  },
+  "homepage": "https://github.com/javifff/CapacitacaoCypress#readme",
+  "dependencies": {
+    "cypress": "^14.0.0"
+  }
+}
