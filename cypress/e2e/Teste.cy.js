@@ -1,3 +1,6 @@
+/// <reference types="cypress" />
+
+
 describe('Test Formulario', () => {
   it('Test', () => {
     cy.visit('https://testautomationpractice.blogspot.com/')
@@ -13,13 +16,39 @@ describe('Test Formulario', () => {
     cy.get('#datepicker').first().should('have.value', '07/24/2025')
     cy.get('#singleFileInput').selectFile('cypress/fixtures/1.jpg')
     cy.get('#singleFileInput').should('have.value', 'C:\\fakepath\\1.jpg')
-  
+
   })
 
-  it.only('Validar Boton 2', () => {
+  it('Validar Boton 2', () => {
     cy.visit('https://testautomationpractice.blogspot.com/')
     cy.get('button[name="start"]').click()
     cy.get('button[name="stop"]').should('be.visible')
+    cy.contains('STOP').should('be.visible')
+    cy.contains('button','STOP').click()
+
+    
   })
+
+  it('Para ver each y then', () => {  
+    // Clase del lunes para ver .each(), .then() e .invoke()
+    cy.visit('https://testautomationpractice.blogspot.com/')
+    
+    // a mi forma
+    cy.get('input.form-check-input[type="checkbox"]').each(($item, indice, $todo) => {
+        const valor = $item.attr('value')
+        if (valor.startsWith('s')) {
+          console.log(valor, indice, $todo);
+          cy.wrap($item).check()
+        }
+    })
+  })
+  
+  it.only('para iframes curso udemy argentino', () => {
+    cy.visit('https://webdriveruniversity.com/IFrame/index.html')
+    cy.get('#button-find-out-more > b')
+  })
+
+
+  
 
 })
