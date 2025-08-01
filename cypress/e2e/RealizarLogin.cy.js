@@ -4,14 +4,20 @@ import Productos from "../support/Pages/Productos"
 
 describe ('Realizar Login', () => {
 
-    beforeEach(() => {
-        Login.accederUrl()
+    before(function() {
+        cy.fixture('credenciales').then(function(da) {
+            this.da = da
+        })
     })
 
-    it('Realizar login exitoso', () => {
+    beforeEach(() => {
+        Login.accederUrl('/')
+    })
+
+    it('Realizar login exitoso', function() {
         //Login.accederUrl()
-        Login.completarUserName('standard_user')
-        Login.completarPassword('secret_sauce')
+        Login.completarUserName(this.da.users.user_standard)
+        Login.completarPassword(this.da.passwords.password_valido)
         Login.clickarEnLogin()
         Productos.validarLabelProductos()
     })

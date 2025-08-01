@@ -1,5 +1,4 @@
 export const ELEMENTS = {
-    url: 'https://www.saucedemo.com/v1/',
     campoUserName: "#user-name",
     campoPassword: "#password",
     botonLogin: "#login-button",

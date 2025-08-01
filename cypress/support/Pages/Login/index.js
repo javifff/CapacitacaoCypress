@@ -1,9 +1,9 @@
 const el = require('./elementos').ELEMENTS
 
 class Login {
-    
+
     accederUrl(url) {
-        cy.visit(el.url)
+        cy.visit(url)
         cy.get(el.imgSwagLabs).should('be.visible')
     }
 
