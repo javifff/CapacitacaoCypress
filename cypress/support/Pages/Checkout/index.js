@@ -3,6 +3,7 @@ const el = require('./elementos').ELEMENTS
 class Checkout {
 
     clickarCheckout() {
+        cy.get(el.botonCheckout).should('have.css', 'background-color', 'rgb(226, 35, 26)')
         cy.get(el.botonCheckout).click()
     }
 

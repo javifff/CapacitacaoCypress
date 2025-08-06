@@ -8,9 +8,12 @@ describe ('Compra Productos', () => {
 
     // Variable para almacenar los datos de acceso (de fixtures/credenciales.json)
     // Se utiliza 'let' para que la variable sea accesible en los bloques 'it
+    // Con esto se evita el uso de 'this.da' en los bloques 'it'
+    // y se puede usar '() =>' en lugar de 'function()' para definir las funciones
+    
     let da
 
-    before(function() {
+    before(() => {
         cy.fixture('credenciales').then(function(datosAcceso) {
             da = datosAcceso
         })
@@ -20,7 +23,7 @@ describe ('Compra Productos', () => {
         Login.accederUrl('/')
     })
 
-    it('Realizar compra exitosa primer producto', function() {
+    it('Realizar compra exitosa primer producto', () => {
         Login.completarUserName(da.users.user_standard)
         Login.completarPassword(da.passwords.password_valido)
         Login.clickarEnLogin()
@@ -39,7 +42,7 @@ describe ('Compra Productos', () => {
     })
 
 
-    it('Realizar compra exitosa producto aleatorio', function() {
+    it('Realizar compra exitosa producto aleatorio', () => {
 
         // Generar un número aleatorio entre 0 y 5 (suponiendo que hay 6 productos)
         let numRandom = Cypress._.random(0, 5);
