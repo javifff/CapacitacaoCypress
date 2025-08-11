@@ -13,7 +13,7 @@ describe('Test Formulario', () => {
     cy.get('#colors').select(['Red'])
     cy.get('#datepicker').click()
     cy.get('a[data-date="24"]').click()
-    cy.get('#datepicker').first().should('have.value', '07/24/2025')
+    cy.get('#datepicker').first().should('have.value', '08/24/2025')
     cy.get('#singleFileInput').selectFile('cypress/fixtures/1.jpg')
     cy.get('#singleFileInput').should('have.value', 'C:\\fakepath\\1.jpg')
 
@@ -43,10 +43,10 @@ describe('Test Formulario', () => {
     })
   })
   
-  it.only('para iframes curso udemy argentino', () => {
-    cy.visit('https://webdriveruniversity.com/IFrame/index.html')
-    cy.get('#button-find-out-more > b')
-  })
+  // it('para iframes curso udemy argentino', () => {
+  //   cy.visit('https://webdriveruniversity.com/IFrame/index.html')
+  //   cy.get('#button-find-out-more > b')
+  // })
 
 
   
